@@ -1,0 +1,46 @@
+public class DBSyncTableJob extends RunBaseBatch
+{
+    DialogField tableDlg;
+    TableName   tableFld;
+
+    public static void main(Args _args)
+    {
+        DBSyncTableJob sync = new DBSyncTableJob();
+
+        if (sync.prompt())
+        {
+            sync.run();
+        }
+    }
+
+    public container pack()
+    {
+        return conNull();
+    }
+
+    public boolean unpack(container packedClass)
+    {
+        return true;
+    }
+
+    public Object dialog()
+    {
+        Dialog dialog = super();
+
+        dialog.caption("Table Synchronization");
+        tableDlg = dialog.addField(extendedTypeStr(TableName), 'Table');
+        return dialog;
+    }
+
+    public boolean getFromDialog()
+    {
+        tableFld = tableDlg.value();
+        return super();
+    }
+
+    public void run()
+    {
+        appl.dbSynchronize(tableName2id(tableFld), false);
+    }
+
+}
