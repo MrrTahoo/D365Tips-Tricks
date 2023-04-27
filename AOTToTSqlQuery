@@ -1,0 +1,12 @@
+public class AOTToTSqlQuery
+{
+    public static void main(Args _args)
+    {
+        Query query;
+
+        query = new Query(queryStr(YourQueryName));
+
+        info(query.dataSourceNo(1).toString());
+    }
+
+}
