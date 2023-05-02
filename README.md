@@ -5,8 +5,8 @@ This repository would contain all the tips and tricks for developers that will h
 # D365 URLs
 The URLs below can be used to run classes and open tables directly inside the browser:
 
-1. Classes: https://<environmentURL>/?mi=SysClassRunner&cls=<classname>
-2. Tables:  https://<environmentURL>/?mi=SysTableBrowser&tablename=<tablename>
+1. Classes: https://YourEnvironmentLink/?cmp=YourCompanyName&mi=SysClassRunner&cls=YourClassName
+2. Tables:  https://YourEnvironmentLink/?cmp=YourCompanyName&mi=SysTableBrowser&tablename=YourClassName
 
 # ModelUtil.exe application (Model management using CMD)
 
