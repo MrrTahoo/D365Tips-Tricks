@@ -1,0 +1,16 @@
+Query                   query = new Query();
+QueryBuildDataSource    queryBuildDataSource;
+ 
+//Specify the table that is to be used in the Lookup
+SysTableLookup sysTableLookup = SysTableLookup::newParameters(tableNum(YourTableName), this);
+
+//Specify & add the names of the fields you want to display in the lookup. 
+sysTableLookup.addLookupField(fieldNum(YourTableName, YourFieldName),true);
+sysTableLookup.addLookupField(fieldNum(YourTableName, YourFieldName),true);
+
+//Add your table as datasource for the lookup
+queryBuildDataSource = query.addDataSource(tableNum(YourTableName));
+
+//Set the Datasource properties
+queryBuildDataSource.fields().dynamic(NoYes::Yes);
+queryBuildDataSource.fields().clearFi
