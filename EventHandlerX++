@@ -1,0 +1,29 @@
+[FormControlEventHandler(formControlStr(MyCustomForm, CheckBoxControl), FormControlEventType::Modified)]
+    public static void CheckBoxControl_OnModified(FormControl sender, FormControlEventArgs e)
+    {
+        // Retrieve the FormRun class from the sender of event handler - to access the form
+        FormRun             formRun = sender.formRun();
+
+        // Get the form control that we need to play with
+        // Since its a string type control thatis why FormStringControl class is used here
+        FormStringControl   formStringControl = formRun.design().controlName(formControlStr(MyCustomForm, 				UserName));
+		       
+        // Next get the datasource of the form
+        FormDataSource      formDataSource = formRun.dataSource(formDataSourceStr(MyCustomForm, CustTable));
+
+        // From the datasource we get the cursor of the form
+        // Cursor refers to a pointer that points to a specific record in a table
+        CustTable           custTable = formDataSource.cursor();
+
+        // Based on my custom condition of value of checkbox
+        if(custTable.custFieldTest == NoYes::Yes)
+        {
+            // Enable the control
+            formStringControl.enabled(true);
+        }
+        else
+        {
+            // Disable the control
+            formStringControl.enabled(false);
+        }
+    }
